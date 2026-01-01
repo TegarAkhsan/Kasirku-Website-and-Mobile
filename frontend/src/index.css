@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-dark-900: #0f172a;
+    --color-dark-800: #1e293b;
+    --color-dark-700: #334155;
+    --color-primary: #6366f1;
+    --color-primary-glow: #818cf8;
+}
+
+@layer base {
+    body {
+        @apply bg-dark-900 text-gray-100 antialiased;
+    }
+}
+
+@layer utilities {
+    .glass {
+        @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    }
+
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Animations */
+    @keyframes check {
+        0% {
+            stroke-dasharray: 0, 100;
+            opacity: 0;
+        }
+
+        100% {
+            stroke-dasharray: 100, 0;
+            opacity: 1;
+        }
+    }
+
+    .animate-check {
+        animation: check 0.5s ease-in-out forwards;
+    }
+
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        70% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .animate-bounce-in {
+        animation: bounce-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+    }
+}
