@@ -1,130 +1,130 @@
 # POS SaaS Application
 
-Aplikasi Point of Sales (POS) berbasis SaaS yang lengkap, terdiri dari Backend (Laravel), Frontend Web (React), dan Aplikasi Mobile (Flutter).
+A complete SaaS-based Point of Sales (POS) application, consisting of a Backend (Laravel), Web Frontend (React), and Mobile Application (Flutter).
 
-## Struktur Project
+## Project Structure
 
-Project ini terdiri dari 3 bagian utama:
-*   **backend/**: API Server menggunakan Laravel 12 & MySQL.
-*   **frontend/**: Web Dashboard menggunakan React 19, Tailwind CSS 4 & Vite.
-*   **pos_mobile/**: Aplikasi Mobile kasir menggunakan Flutter.
+The project consists of 3 main parts:
+*   **backend/**: API Server using Laravel 12 & MySQL.
+*   **frontend/**: Web Dashboard using React 19, Tailwind CSS 4 & Vite.
+*   **pos_mobile/**: Cashier Mobile App using Flutter.
 
 ---
 
-## 🚀 Panduan Instalasi
+## 🚀 Installation Guide
 
-Pastikan Anda telah menginstal tools berikut di komputer Anda:
+Ensure you have the following tools installed on your computer:
 *   [PHP](https://www.php.net/) >= 8.2 & [Composer](https://getcomposer.org/)
 *   [Node.js](https://nodejs.org/) & NPM
 *   [Flutter SDK](https://flutter.dev/)
 *   [MySQL](https://www.mysql.com/) Database
 
-### 1. Instalasi Backend (Laravel)
+### 1. Backend Installation (Laravel)
 
-Backend berfungsi sebagai penyedia API untuk Web dan Mobile.
+The backend serves as the API provider for both Web and Mobile apps.
 
-1.  Buka terminal dan masuk ke folder `backend`:
+1.  Open a terminal and navigate to the `backend` folder:
     ```bash
     cd backend
     ```
 
-2.  Install dependensi PHP menggunakan Composer:
+2.  Install PHP dependencies using Composer:
     ```bash
     composer install
     ```
 
-3.  Salin file konfigurasi `.env`:
+3.  Copy the configuration file `.env`:
     ```bash
     cp .env.example .env
     ```
-    *(Pada Windows, Anda bisa copy-paste file `.env.example` dan rename menjadi `.env`)*
+    *(On Windows, you can copy-paste the `.env.example` file and rename it to `.env`)*
 
-4.  Generate Application Key:
+4.  Generate the Application Key:
     ```bash
     php artisan key:generate
     ```
 
-5.  Konfigurasi Database:
-    Buka file `.env` dan sesuaikan koneksi database Anda:
+5.  Database Configuration:
+    Open the `.env` file and adjust your database connection settings:
     ```env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=pos_saas_db  # Pastikan database ini sudah dibuat di MySQL
+    DB_DATABASE=pos_saas_db  # Make sure this database is created in MySQL
     DB_USERNAME=root
     DB_PASSWORD=
     ```
 
-6.  Jalankan Migrasi Database (untuk membuat tabel):
+6.  Run Database Migrations (to create tables):
     ```bash
     php artisan migrate
     ```
 
-7.  Jalankan Server Backend:
+7.  Run the Backend Server:
     ```bash
     php artisan serve
     ```
-    Server akan berjalan di `http://127.0.0.1:8000`.
+    The server will run at `http://127.0.0.1:8000`.
 
 ---
 
-### 2. Instalasi Frontend Web (React + Vite)
+### 2. Web Frontend Installation (React + Vite)
 
-Frontend Web digunakan oleh pemilik toko/admin untuk manajemen.
+The Web Frontend is used by store owners/admins for management.
 
-1.  Buka terminal baru dan masuk ke folder `frontend`:
+1.  Open a new terminal and navigate to the `frontend` folder:
     ```bash
     cd frontend
     ```
 
-2.  Install dependensi Node.js:
+2.  Install Node.js dependencies:
     ```bash
     npm install
     ```
 
-3.  Jalankan Seryer Development:
+3.  Run the Development Server:
     ```bash
     npm run dev
     ```
-    Frontend biasanya akan berjalan di `http://localhost:5173`.
+    The frontend will usually run at `http://localhost:5173`.
 
-> **Catatan**: Jika perlu mengubah URL API Backend, cek konfigurasi di source code (biasanya di folder `src/api` atau `src/config`) atau file `.env` jika ada.
+> **Note**: If you need to change the Backend API URL, check the source code configuration (usually in `src/api` or `src/config`) or the `.env` file if it exists.
 
 ---
 
-### 3. Instalasi Aplikasi Mobile (Flutter)
+### 3. Mobile App Installation (Flutter)
 
-Aplikasi Mobile digunakan untuk operasional kasir.
+The Mobile App is used for cashier operations.
 
-1.  Buka terminal baru dan masuk ke folder `pos_mobile`:
+1.  Open a new terminal and navigate to the `pos_mobile` folder:
     ```bash
     cd pos_mobile
     ```
 
-2.  Install dependensi Flutter:
+2.  Install Flutter dependencies:
     ```bash
     flutter pub get
     ```
 
-3.  Jalankan Aplikasi:
-    Pastikan emulator Android/iOS sudah berjalan atau HP terhubung.
+3.  Run the Application:
+    Make sure an Android/iOS emulator is running or a physical device is connected.
     ```bash
     flutter run
     ```
 
-> **Konfigurasi API di Mobile**:
-> Pastikan aplikasi mobile terhubung ke IP address komputer Anda jika menjalankan di device fisik (bukan `localhost` atau `127.0.0.1`, melainkan IP LAN misal `192.168.1.x`). Cek konfigurasi URL API di `lib/core/api_config.dart` atau file sejenis.
+> **Mobile API Configuration**:
+> Ensure the mobile app connects to your computer's IP address if running on a physical device (use your LAN IP, e.g., `192.168.1.x`, instead of `localhost` or `127.0.0.1`). Check the API URL configuration in `lib/core/api_config.dart` or similar files.
 
 ---
 
-## Fitur Utama
+## Key Features
 
-*   **Multi-Tenant**: Mendukung banyak toko/tenant.
-*   **Manajemen Produk & Stok**: Kelola inventaris dengan mudah.
-*   **Transaksi Kasir**: Point of sales yang cepat dan responsif.
-*   **Laporan**: Analisa penjualan dan performa toko.
-*   **Integrasi Pembayaran**: Mendukung gateway pembayaran (Midtrans).
+*   **Multi-Tenant**: Supports multiple stores/tenants.
+*   **Product & Stock Management**: Easily manage inventory.
+*   **Cashier Transactions**: Fast and responsive Point of Sales.
+*   **Reports**: Analyze sales and store performance.
+*   **Payment Integration**: Supports payment gateways (Midtrans).
 
-## Lisensi
+## License
 
 [MIT License](LICENSE)
