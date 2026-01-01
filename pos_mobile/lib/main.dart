@@ -5,7 +5,10 @@ import 'features/auth/screens/login_screen.dart';
 import 'features/auth/providers/auth_provider.dart';
 import 'screens/dashboard_screen.dart';
 
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const ProviderScope(child: MyApp()));
 }
 
