@@ -114,14 +114,18 @@ The Mobile App is used for cashier operations.
     flutter pub get
     ```
 
-3.  Run the Application:
+3.  **Environment Configuration**:
+    Copy `.env.example` to `.env`.
+    ```bash
+    cp .env.example .env
+    ```
+    Open the `.env` file and ensure `BASE_URL` matches your backend URL (e.g., `http://10.0.2.2:8000/api` for emulator, or your LAN IP for physical device).
+
+4.  Run the Application:
     Make sure an Android/iOS emulator is running or a physical device is connected.
     ```bash
     flutter run
     ```
-
-> **Mobile API Configuration**:
-> Ensure the mobile app connects to your computer's IP address if running on a physical device (use your LAN IP, e.g., `192.168.1.x`, instead of `localhost` or `127.0.0.1`). Check the API URL configuration in `lib/core/api_config.dart` or similar files.
 
 ---
 
